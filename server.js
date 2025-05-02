@@ -24,13 +24,14 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(
   cors({
-    origin: "*", // ⚠️ not recommended for production!
+    origin: "*", // or "*" for testing only
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
-
 
 app.use(
   fileUpload({
